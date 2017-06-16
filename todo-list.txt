@@ -1,0 +1,2 @@
+Add case also of angularjs directives upgrade ?
+Create a readme
