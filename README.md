@@ -39,3 +39,44 @@ There are mainly 3 ways to use the current module:
    `ov-upgrade-component output=pathofoutput.ts`
 
    In this way the module will use the provided path in order to output the file.
+
+## Sample
+
+Considering the following ng1 component:
+
+    (function() {
+        'use strict';
+
+        angular.module('my-ng-module')
+
+        .component('sampleComponent', {
+            controller: 'SampleComponentController',
+            controllerAs: 'vm',
+            templateUrl: 'mytemplateURL.html',
+            bindings: {
+                customer: '=ngModel',
+                test: '@'
+            }
+        });
+    })();
+
+the output as ng2 directive will be:
+
+    import { Input, Directive, ElementRef, Injector, SimpleChanges } from '@angular/core';
+    import { UpgradeComponent } from '@angular/upgrade/static';
+
+    @Directive({
+        selector: 'sample-component'
+    })
+    export class SampleComponentDirective extends UpgradeComponent {
+
+        @Input() test: any;
+        @Input() customer: any;
+
+        @Output() customerChange: EventEmitter < any >;
+
+
+        constructor(elementRef: ElementRef, injector: Injector) {
+            super('sampleComponent', elementRef, injector);
+        }
+    }
