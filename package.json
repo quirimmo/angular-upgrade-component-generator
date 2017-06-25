@@ -1,6 +1,6 @@
 {
     "name": "ov-upgrade-component-generator",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Node application in order to generate ng2 upgraded components from ng1 components",
     "bin": {
         "ov-upgrade-component": "./bin/upgrade-component.js"
@@ -14,6 +14,8 @@
         "angular-upgrade-component-generator",
         "upgrade-component-generator",
         "angular-component-generator",
+        "ng-upgrade",
+        "ng-upgrade-generator",
         "ng1-ng2-generator"
     ],
     "devDependencies": {},
